@@ -25,12 +25,26 @@ func RedisInit() {
 }
 
 func NewClient() { // 實體化redis.Client 並返回實體的位址
-	Redis.Client = redis.NewClient(&redis.Options{
-		Addr:     strings.Join([]string{config.GetSetting().RedisIp, config.GetSetting().RedisPort}, ":"),
-		Password: config.GetSetting().RedisPassword, // no password set
-		DB:       config.GetSetting().RedisDB,       // use default DB
-	})
 
+	Redis = &RedisClient{}
+	redisOpt := &redis.Options{}
+	if config.GetLotterySetting() != nil {
+		fmt.Println("Lottery Redis")
+		redisOpt = &redis.Options{
+			Addr:     strings.Join([]string{config.GetLotterySetting().RedisIp, config.GetLotterySetting().RedisPort}, ":"),
+			Password: config.GetLotterySetting().RedisPassword, // no password set
+			DB:       config.GetLotterySetting().RedisDB,       // use default DB
+		}
+	} else {
+		fmt.Println("Chat Redis")
+		redisOpt = &redis.Options{
+			Addr:     strings.Join([]string{config.GetChatSetting().RedisIp, config.GetChatSetting().RedisPort}, ":"),
+			Password: config.GetChatSetting().RedisPassword, // no password set
+			DB:       config.GetChatSetting().RedisDB,       // use default DB
+		}
+	}
+	
+	Redis.Client = redis.NewClient(redisOpt)
 	if pong, err := Redis.Client.Ping(ctx).Result(); err != nil {
 		log.Println("Redis connection failed", err)
 	} else {

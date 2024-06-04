@@ -13,3 +13,7 @@ const (
 	UserMember     = "game"           // 儲存所有使用者的Balance   	Redis:`Sorted-Set`	SCORE -> USER
 	BetThisRound   = "bet_this_round" // 儲存目前局的下注狀況		 	Redis:`Sorted-Set`  SCORE -> USER
 )
+
+const (
+	ChatChannel = "chatroom"
+)

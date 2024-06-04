@@ -1,11 +1,11 @@
 package model
 
-type Setting struct {
+type LotterySetting struct {
 	Port          string `mapstructure:"port"`
 	RedisIp       string `mapstructure:"redis_ip"`
 	RedisPort     string `mapstructure:"redis_port"`
 	RedisPassword string `mapstructure:"redis_password"`
-	RedisDB       int  `mapstructure:"redis_db"`
+	RedisDB       int    `mapstructure:"redis_db"`
 }
 
 type User struct {

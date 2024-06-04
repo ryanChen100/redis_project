@@ -10,5 +10,5 @@ func Start() {
 	gin.SetMode(gin.DebugMode)
 	r := gin.Default()
 	InitAdminRouter(r)
-	r.Run(":" + config.GetSetting().Port)
+	r.Run(":" + config.GetLotterySetting().Port)
 }
