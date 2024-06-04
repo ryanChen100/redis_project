@@ -2,9 +2,9 @@
 
 ## start lottery
 
-### 1.modidfy : ==cmd >> lottery >> config==
+### 1.modidfy : cmd >> lottery >> config
 
-### 2.run : ==cmd >> lottery==
+### 2.run : cmd >> lottery
 
 ## RestFul API
 ```
@@ -23,11 +23,11 @@ Timmy下注333元：```POST -> http://127.0.0.1:8080/lottery//bet/Timmy/333
 # Chatroom
 ## start chatroom
 
-### 1.modidfy : ==cmd >> chatroom >> config==
+### 1.modidfy : cmd >> chatroom >> config
 
-### 2.run : ==cmd >> chatroom==
+### 2.run : cmd >> chatroom
 
-### 3.透過瀏覽器開啟 ==cmd/chatroom/chatroom.html==開啟聊天室
+### 3.透過瀏覽器開啟 cmd/chatroom/chatroom.html開啟聊天室
 
 ```
 gorilla/webstocket 連線,
